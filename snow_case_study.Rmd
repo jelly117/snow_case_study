@@ -85,11 +85,21 @@ The results of this query were saved as [freezing_days.csv](./freezing_days.csv)
 
 I started by looking at the number of days with snow on the ground for each county. 
 This was measured as the number of days during each year where at least one station 
-within the county reported a snow depth of at least one inch. Using this data I 
-created [this Tableau dashboard](https://public.tableau.com/views/snow_days/Dashboard1?:language=en-US&:display_count=n&:origin=viz_share_link). I was surprised to see many counties without any snow reported, 
+within the county reported a snow depth of at least one inch.  
+  
+I created [a Tableau dashboard]https://public.tableau.com/shared/D3WQZHYZ2?:display_count=n&:origin=viz_share_link) using this data. This dashboard has a year selection which allows the user to select which year they want to see 
+the number of snow days (or select all for the cumulative total). The Snow Days 
+filter allows the user to set a minimum number of yearly snow days to display. For 
+example, if the filter is set to 60, only counties with more than 60 snow days in 
+the selected year. This is useful for quickly identifying counties which consistently 
+have a large number of days with snow each year.
+  
+I was surprised to see many counties without any snow reported, 
 even in areas which definitely receive snow. I suspect this is due to a couple factors. 
 First, my method for determining the county each station is located in relies on 
-matching the WBAN ID from the GSOD and MSHR datasets. Second, it is possible not all 
+matching the WBAN ID from the GSOD and MSHR datasets. Since not all stations in the MSHR 
+dataset have a WBAN ID listed, this will limit the number of stations available for 
+my analysis. Second, it is possible not all 
 weather stations report snow depth. The combination of those two factors significantly 
 reduces the number of weather stations available to analyze the number of snow days. 
 Despite this some patterns do emerge, particularly when filtering for counties with 80+ 
@@ -101,8 +111,11 @@ Next I looked at how the number of snow days has changed over the years. To do t
 I performed a linear regression for each county, then pulled the slope coefficient 
 from the regression model. This analysis is very basic and not suitable for predictive 
 purposes (weather and climate are extremely complicated), but it should provide a 
-general idea of any long term trends. The resulting data is provided in 
-[a Tableau dashboard](https://public.tableau.com/app/profile/ross.hjelle/viz/snow_day_trends/Dashboard1). 
+general idea of any long term trends.  
+  
+Here is the resulting data (click on image to go to the interactive dashboard): 
+[![](./snow_days_trend.PNG)](https://public.tableau.com/app/profile/ross.hjelle/viz/snow_day_trends/Dashboard1).  
+  
 Again, due to the sparseness of the data I'm working with it is difficult to draw 
 any definite conclusions. It does appear an area centered around Michigan is seeing 
 descreasing snow days, while some areas around Minnesota and western Montana have 
@@ -115,18 +128,28 @@ It would make sense that this would give me a larger dataset since nearly all
 weather stations will include temperature measurements. In particular, I looked 
 at the number of days where the *maximum* temperature in a county was below the 
 freezing point (32F). This would serve as a good indication of how many days during 
-the year have a potential for snow. [Here is the dashboard](https://public.tableau.com/app/profile/ross.hjelle/viz/freezingdays/Dashboard1#1) 
-I created to look at the number of days below freezing each year. There are no 
-surprises here. Northern, interior, and mountain states all tended to have more 
-days below freezing.  
+the year have a potential for snowfall.  
+  
+[Here is the dashboard](https://public.tableau.com/shared/T8X772NP2?:display_count=n&:origin=viz_share_link) 
+I created to look at the number of days below freezing each year. This is set up 
+with the same interface as the dashboard for the number of snow days each year.
+  
+
+There are no surprises here. Northern, interior, and mountain states all tended 
+to have more days below freezing.  
   
 Similar to with the snow data, I then looked at the trend in freezing days over the 
-years. This was done the same way as with the snow data and the same caveats apply. 
-[Here is the resulting dashboard.](https://public.tableau.com/app/profile/ross.hjelle/viz/freezing_day_trend/Dashboard1) 
+years. This was done the same way as with the snow data and the same caveats apply.  
+  
+Here is the trend data for the number of days below freezing (click on image to 
+go to the interactive dashboard):
+[![](./freezing_days_trend.PNG)](https://public.tableau.com/app/profile/ross.hjelle/viz/freezing_day_trend/Dashboard1)  
+  
+  
 There are some interesting things to observe here. An area from the Northeast, through 
 Ohio, Michigan, and parts of Indiana, Illinois, and Wisconsin are all tending to see 
-decrease in below freezing days. Much of the Mountain West are also seeing a decrease 
-in below freezing days. Much of Minnesota, Montana, and northern Wisconsin are actually 
+a decrease in below freezing days. Much of the Mountain West is also seeing a decrease 
+in below freezing days. Parts of Minnesota, Montana, and northern Wisconsin are actually 
 experiencing an increase in below freezing days. Somewhat surprisingly, parts of 
 the south are also seeing an increase in below freezing days. 
 
@@ -134,7 +157,7 @@ the south are also seeing an increase in below freezing days.
 
 Based on my analysis, The Upper Midwest (Minnesota, Wisconsin, North Dakota) is the best bet for having, and 
 continuing to have, good winters for skiing. These states currently receive a large 
-number of snowy days and days below freezing. Large portions of these states also 
+number of snowy days and days below freezing. Portions of these states also 
 have either positive or neutral trends in the number of snowy and freezing days.  
   
 New England currently receives good winters with lots of snowy and freezing days. 
@@ -149,6 +172,6 @@ the county level aggregation is not sufficient to capture this variation.
   
 One area I hadn't considered, but maybe should be on my list is western Montana 
 (the Missoula area). This area currently sees fewer snowy and freezing days than 
-the Upper Midwest or New England. This area does have a positive trend for the number 
+the Upper Midwest or New England. However, this area does have a positive trend for the number 
 of snowy days, and a neutral or slightly positive trend in the number of days below 
 freezing. 
