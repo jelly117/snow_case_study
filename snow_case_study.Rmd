@@ -3,8 +3,8 @@ title: "Snow Case Study"
 author: "Ross Hjelle"
 date: "2023-12-20"
 output:
-  html_document: default
-  pdf_document: default
+  github_document:
+    html_preview: false
 ---
 
 ```{r setup, include=FALSE}
