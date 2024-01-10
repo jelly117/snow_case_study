@@ -19,7 +19,7 @@ which experiences all four seasons. We particularly enjoy winter because
 cross-country skiing is a favorite pass time of ours. This means
 anywhere we consider moving to **must** have at least some winter weather.
 Just as importantly, that place should *continue* to experience winter weather as
-our climate continues to change.
+our climate changes.
 
 Some of the areas we have considered for a potential future move
 include:  
@@ -57,7 +57,7 @@ temperature, going back to 1929.
 The GSOD data includes the country and state where each weather station is located, 
 but not the county. I will need to find a way to determine the county for each 
 weather station. The [mshr_standard](https://www.ncei.noaa.gov/access/homr/reports/mshr) 
-dataset proved useful for this. The MSHR data included WBAN ID and county for a large 
+dataset proved useful for this. The MSHR data includes WBAN ID and county for a large 
 number of weather stations. I can parse this data and import it to BigQuery, enabling me 
 to determine the county of each weather station directly within my SQL queries.  
   
@@ -78,7 +78,7 @@ The results of this query were saved as [snow_days.csv](/snow_days.csv).
 The SQL query for pulling the number of days below freezing can be seen [here](/freezing_days.sql). 
 The results of this query were saved as [freezing_days.csv](/freezing_days.csv).  
   
-In both queries, I pulled data from 2013 to 2022.
+In both queries, I pulled data from 2004 to 2022.
 
 
 ## Analysis
@@ -170,7 +170,7 @@ final visualization.
 
 ## Conclusions
 
-Based on my analysis, The Upper Midwest (Minnesota, Wisconsin, North Dakota) is the best bet for having, and 
+Based on my analysis, The Upper Midwest (Parts of Minnesota, Wisconsin, and North Dakota) is the best bet for having, and 
 continuing to have, good winters for skiing. These states currently receive a large 
 number of snowy days and days below freezing. Portions of these states also 
 have either positive or neutral trends in the number of snowy and freezing days.  
